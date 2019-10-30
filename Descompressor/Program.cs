@@ -102,14 +102,16 @@ namespace Descompressor
         // Descomprimir texto no ficheiro e mostrar no ecrã
         private void Descomprime()
         {
-
+            // Abre ficheiro no path escolhido
             FileStream fs = new FileStream(
                 ficheiro, FileMode.Open, FileAccess.Read);
-
+            // Descomprime o fichieiro
             GZipStream gzs = new GZipStream(fs, CompressionMode.Decompress);
 
+            // Prepara para ler o ficheiro
             StreamReader sr = new StreamReader(gzs);
 
+            // Imprime 
             Console.WriteLine(sr.ReadToEnd());
 
             sr.Dispose();
